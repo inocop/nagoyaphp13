@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  ruby:
+    image: ruby:2.5-alpine
+    volumes:
+      - .:/ruby
+    command: tail -f /dev/null
+    network_mode: none
+
