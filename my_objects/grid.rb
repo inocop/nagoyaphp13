@@ -6,7 +6,7 @@ module MyObjects
 
     def initialize(values)
       @y_limit = values.size - 1
-      @x_limit = values[0].size - 1  # x_sizeはvaluesの先頭行の個数で固定
+      @x_limit = values[0].size - 1  # x_limitはvaluesの先頭行の個数で固定
 
       @points = []
       0.upto(@y_limit) do |y|
