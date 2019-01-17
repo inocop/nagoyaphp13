@@ -1,4 +1,4 @@
-module Models
+module MyObjects
   class Point
 
     attr_accessor :value
