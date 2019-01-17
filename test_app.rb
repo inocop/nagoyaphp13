@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require "test-unit"
-require_relative './App'
+require_relative './app'
 
 class TestApp < Test::Unit::TestCase
 
