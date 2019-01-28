@@ -2,7 +2,7 @@
 
 $LOAD_PATH << File.expand_path('../', __FILE__)
 
-require 'commands/rotator_factory'
+require 'command_factories/rotator3x3_factory'
 require 'commands/vertical_rotator'
 require 'commands/horizontal_rotator'
 
@@ -18,18 +18,19 @@ class App
       [7, 8, 9],
     ]
     @grid = MyObjects::Grid.new(values)
+
+    @rotator_factory = CommandFactories::Rotator3x3Factory.new
   end
 
   def run(data)
-    rotate_commands = []
+    command_seq = []
 
     code_list = data.chars
     code_list.each do |code|
-      rotate_commands << Commands::RotatorFactory.create3x3(code)
+      command_seq << @rotator_factory.get_command(code)
     end
 
-    rotate_commands.each { |c| c.run(@grid) }
-
+    command_seq.each { |c| c.run(@grid) }
     return @grid.result
   end
 end
